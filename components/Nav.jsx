@@ -65,10 +65,10 @@ const Nav = () => {
 
             {dropdown && (
               <div className='dropdown'>
-                <Link href='/profile' className='dropdown_link' onClick={closeDropdown}>
+                <Link className='dropdown_link' href='/profile' onClick={closeDropdown}>
                   My Profile
                 </Link>
-                <Link href='/create-prompt' className='dropdown_link' onClick={closeDropdown}>
+                <Link className='dropdown_link' href='/create-prompt' onClick={closeDropdown}>
                   Create Prompt
                 </Link>
                 <button className='mt-5 w-full black_btn' type='button' onClick={logOutDropdown}>
