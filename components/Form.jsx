@@ -1,6 +1,10 @@
 import Link from 'next/link';
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+  const handleChange = (e) => {
+    setPost({ ...post, prompt: e.target.value });
+  };
+
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
@@ -14,27 +18,14 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>Your AI Prompt</span>
 
-          <textarea
-            className='form_textarea '
-            value={post.prompt}
-            onChange={(e) => setPost({ ...post, prompt: e.target.value })}
-            placeholder='Write your post here'
-            required
-          />
+          <textarea className='form_textarea ' value={post.prompt} placeholder='Write your post here' required onChange={handleChange} />
         </label>
 
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
             Field of Prompt <span className='font-normal'>(#product, #webdevelopment, #idea, etc.)</span>
           </span>
-          <input
-            className='form_input'
-            value={post.tag}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
-            type='text'
-            placeholder='#Tag'
-            required
-          />
+          <input className='form_input' value={post.tag} type='text' placeholder='#Tag' required onChange={handleChange} />
         </label>
 
         <div className='flex-end mx-3 mb-5 gap-4'>
