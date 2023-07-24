@@ -7,6 +7,7 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Nav = () => {
   const [providers, setProviders] = useState(null);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -55,17 +56,17 @@ const Nav = () => {
       <div className='sm:hidden flex relative'>
         {'isUserLoggedInTEMP' ? (
           <div className='flex'>
-            <Image className='rounded-full' src={'session'?.user?.image || '/assets/images/logo.svg'} width={37} height={37} alt='profile' onClick={() => { 'setToggleDropdown(!toggleDropdown)'; }} />
+            <Image className='rounded-full cursor-pointer' src={'session'?.user?.image || '/assets/images/logo.svg'} width={37} height={37} alt='profile' onClick={() => { setToggleDropdown(!toggleDropdown); }} />
 
-            {'toggleDropdown' && (
+            {toggleDropdown && (
               <div className='dropdown'>
-                <Link href='/profile' className='dropdown_link' onClick={() => { 'setToggleDropdown(false)'; }}>
+                <Link href='/profile' className='dropdown_link' onClick={() => { setToggleDropdown(false); }}>
                   My Profile
                 </Link>
-                <Link href='/create-prompt' className='dropdown_link' onClick={() => { 'setToggleDropdown(false)'; }}>
+                <Link href='/create-prompt' className='dropdown_link' onClick={() => { setToggleDropdown(false); }}>
                   Create Prompt
                 </Link>
-                <button className='mt-5 w-full black_btn' type='button' onClick={() => { 'setToggleDropdown(false)'; signOut(); }}>
+                <button className='mt-5 w-full black_btn' type='button' onClick={() => { setToggleDropdown(false); signOut(); }}>
                   Sign Out
                 </button>
               </div>
