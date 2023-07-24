@@ -34,7 +34,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           </Link>
 
           <button className='px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white' type='submit' disabled={submitting}>
-            {submitting ? `${type}ing...` : type}
+            {submitting ? `${type.replace('Create', 'Creat')}ing...` : type}
           </button>
         </div>
       </form>
