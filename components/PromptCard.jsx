@@ -8,7 +8,7 @@ import Image from 'next/image';
 const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const { data: session } = useSession();
   const pathName = usePathname(), router = useRouter();
-  const [copied, setCopied] = useState('');
+  const [icon, setIcon] = useState('copy');
 
   const handleProfileClick = () => {
     if (post.creator._id === session?.user.id) return router.push('/profile');
@@ -16,9 +16,9 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   };
 
   const handleCopy = () => {
-    setCopied(post.prompt);
+    setIcon('tick');
     navigator.clipboard.writeText(post.prompt);
-    setTimeout(() => setCopied(false), 3000);
+    setTimeout(() => setIcon('copy'), 3000);
   };
 
   return (
@@ -34,12 +34,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         </div>
 
         <div className='copy_btn' onClick={handleCopy}>
-          <Image
-            src={copied === post.prompt ? '/assets/icons/tick.svg' : '/assets/icons/copy.svg'}
-            alt={copied === post.prompt ? 'tick_icon' : 'copy_icon'}
-            width={12}
-            height={12}
-          />
+          <Image src={`/assets/icons/${icon}.svg`} alt={`${icon}_icon`} width={12} height={12} />
         </div>
       </div>
 
