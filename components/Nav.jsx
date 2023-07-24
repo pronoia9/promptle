@@ -56,7 +56,7 @@ const Nav = () => {
       <div className='sm:hidden flex relative'>
         {'isUserLoggedInTEMP' ? (
           <div className='flex'>
-            <Image className='rounded-full cursor-pointer' src={'session'?.user?.image || '/assets/images/logo.svg'} width={37} height={37} alt='profile' onClick={() => { setToggleDropdown(!toggleDropdown); }} />
+            <Image className='rounded-full' src={'session'?.user?.image || '/assets/images/logo.svg'} width={37} height={37} alt='profile' onClick={() => { setToggleDropdown(!toggleDropdown); }} />
 
             {toggleDropdown && (
               <div className='dropdown'>
