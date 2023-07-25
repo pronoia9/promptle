@@ -18,6 +18,7 @@ const MyProfile = () => {
       setMyPosts(data);
     };
     if (session?.user.id) fetchPosts();
+    else router.push('/');
   }, [session?.user.id]);
 
   const handleEdit = (post) => {
@@ -38,7 +39,7 @@ const MyProfile = () => {
   };
 
   return (
-    <Profile
+   session?.user.id && <Profile
       title='My'
       desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination.'
       data={myPosts}
