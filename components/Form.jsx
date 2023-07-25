@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+const Form = ({ type, post, setPost, submitting, cancelPath, handleSubmit }) => {
   const handleChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
@@ -29,7 +29,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         </label>
 
         <div className='flex-end mx-3 mb-5 gap-4'>
-          <Link className='text-gray-500 text-sm' href='/'>
+          <Link className='text-gray-500 text-sm' href={cancelPath}>
             Cancel
           </Link>
 

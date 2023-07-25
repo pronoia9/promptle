@@ -29,6 +29,6 @@ const CreatePrompt = () => {
     }
   };
 
-  return <Form type='Create' post={post} setPost={setPost} submitting={submitting} handleSubmit={createPrompt} />;
+  return <Form type='Create' post={post} setPost={setPost} submitting={submitting} cancelPath='/' handleSubmit={createPrompt} />;
 };
 export default CreatePrompt;

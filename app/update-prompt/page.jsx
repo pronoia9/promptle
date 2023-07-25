@@ -46,7 +46,7 @@ const UpdatePrompt = () => {
     }
   };
 
-  return <Form type='Edit' post={post} setPost={setPost} submitting={submitting} handleSubmit={updatePrompt} />;
+  return <Form type='Edit' post={post} setPost={setPost} submitting={submitting} cancelPath='/profile' handleSubmit={updatePrompt} />;
 };
 
 export default UpdatePrompt;
