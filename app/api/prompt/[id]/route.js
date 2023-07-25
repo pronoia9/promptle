@@ -14,7 +14,6 @@ export const GET = async (request, { params }) => {
 
 export const PATCH = async (request, { params }) => {
   const { prompt, tag } = await request.json();
-
   try {
     await connectToDB();
     // Find the existing prompt by ID
